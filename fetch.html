@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+
+<script>
+
+function anderson (){
+    let data={nom:'1'};
+              var myHeaders = new Headers();
+myHeaders.append('Content-Type', 'application/json');
+   
+fetch("exemple.php?p=anderson",{
+    method: "GET",
+    headers: myHeaders,
+    mode:"cors",
+    cache:"default",
+   
+    //body: JSON.stringify(data)
+   
+
+})
+.then(response => response.json())
+.then(json => console.log(json))
+.catch(err => console.log(err));
+
+
+}
+(async () => {
+  const rawResponse = await fetch('exemple.php', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({nom:'andy!'})
+  });
+  const content = await rawResponse.json();
+
+  console.log(content);
+})();
+
+
+
+anderson();
+/*
+
+.catch(function (){console.log('Erreur')})
+;*/
+
+</script>
